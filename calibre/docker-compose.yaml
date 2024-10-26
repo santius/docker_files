@@ -1,0 +1,16 @@
+services:
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - CLI_ARGS= # optional
+    volumes:
+      - /mnt/data/books:/books  # Map host directory to /books in the container
+      - /mnt/data/calibre:/config # Config directory for Calibre
+    ports:
+      - 8085:8080 # Change this if needed (maps host port 8085 to container port 8080)

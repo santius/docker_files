@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  librespeed:
+    image: lscr.io/linuxserver/librespeed
+    container_name: librespeed
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PASSWORD=Paysandu11$
+      - CUSTOM_RESULTS=false #optional
+    volumes:
+      - /home/santius/librespeed/appdata/config:/config
+    ports:
+      - 9339:80
+    restart: unless-stopped
